@@ -1,2 +1,2 @@
-calculator 5 100
-Glasses 5 1100
+calculator 5 231
+

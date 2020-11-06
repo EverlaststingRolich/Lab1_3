@@ -2,6 +2,7 @@
 #define OBJECT_COLLECTION_H
 #include <string>
 #include "object.h"
+#include "money_stack.h"
 using namespace std;
 
 struct lista

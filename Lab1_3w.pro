@@ -20,6 +20,7 @@ SOURCES += \
     mainwindow.cpp \
     money_stack.cpp \
     money_stack_test.cpp \
+    ms_window.cpp \
     object.cpp \
     object_collection.cpp \
     object_window.cpp \
@@ -30,6 +31,7 @@ SOURCES += \
 HEADERS += \
     mainwindow.h \
     money_stack.h \
+    ms_window.h \
     object.h \
     object_collection.h \
     object_window.h \
@@ -38,6 +40,7 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui \
+    ms_window.ui \
     object_window.ui \
     second_window.ui
 

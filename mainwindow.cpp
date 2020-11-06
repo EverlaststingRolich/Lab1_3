@@ -7,6 +7,7 @@
 #include <QStandardItemModel>
 #include "money_stack.h"
 #include "object_window.h"
+#include "ms_window.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -30,5 +31,7 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    cout << "2" << endl;
+    ms_window window;
+    window.setModal(true);
+    window.exec();
 }
