@@ -73,8 +73,9 @@ void test_collection_class()
     object_collection ob_to_file;
     ob_to_file.add_elem(object6, 1);
     ob_to_file.add_elem(object7, 2);
-    assert(ob_to_file.to_file("D:\\LAB_PROGRAMMING\\Laba1_-1_OOP-master\\Lab1\\to.txt") == 0);
+    assert(ob_to_file.to_file("D:\\LAB\\Lab1_3w\\to.txt") == 0);
     object_collection ob_from_file;
-    assert(ob_from_file.from_file("D:\\LAB_PROGRAMMING\\Laba1_-1_OOP-master\\Lab1\\to.txt") == 0);
+    assert(ob_from_file.from_file("D:\\LAB\\Lab1_3w\\to.txt") == 0);
     assert(ob_from_file == ob_to_file); // Проверка на равенство записанной в файл и полученной из файла коллекцией
 }
+

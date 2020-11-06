@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Defolt object</string>
+     <string>Default object</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">

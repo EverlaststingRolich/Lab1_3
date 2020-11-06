@@ -22,6 +22,16 @@ private slots:
 
     void on_view_collection_clicked();
 
+    void on_delete_number_clicked();
+
+    void on_delete_list_clicked();
+
+    void on_size_of_collection_clicked();
+
+    void on_input_file_clicked();
+
+    void on_output_file_clicked();
+
 private:
     object_collection obj_collection;
     Ui::object_window *ui;
