@@ -22,7 +22,7 @@ public:
     void set_volume(int value);
     void set_price(int value);
 
-   // int get_new_volume() const;
+    virtual int get_new_volume() const;
 
 
 private:

@@ -7,7 +7,7 @@
 #include <QStandardItem>
 #include <QStandardItemModel>
 #include "money_stack.h"
-//#include "money_stack.cpp"
+#include "money_stack.cpp"
 #include "mainwindow.h"
 #include <fstream>
 
@@ -29,10 +29,9 @@ void ms_window::on_add_ms_clicked()
     std:: string name = ui->ms_name->text().toStdString();
     int price  = atoi(ui->ms_price->text().toStdString().c_str());
     int pos = atoi(ui->ms_pos->text().toStdString().c_str());
-    //int volume = find_new_volume(price);
-    int volume = 1;
+    int volume = find_new_volume(price);
+    //int volume = ;
     auto stack = new money_stack(name, volume, price);
-    cout << stack->get_new_volume() << endl;
 
     int size_of_collection = this->ms_collection.get_size();
 
@@ -45,6 +44,7 @@ void ms_window::on_add_ms_clicked()
         QMessageBox::information(this, "Add", "You add new purchase");
     }
 }
+
 
 
 void ms_window::on_view_ms_collection_clicked()

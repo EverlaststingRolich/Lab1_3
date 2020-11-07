@@ -71,11 +71,9 @@ void object::set_price(int value)
         this->price = 0;
 }
 
+int object::get_new_volume() const
+{
+    return 0;
+}
 
-//string object::get_data(const string &type) const
-//{
- //   if(type == "name")
- //       return this->get_name();
 
- //   return " ";
-//}
