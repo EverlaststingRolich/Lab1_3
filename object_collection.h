@@ -2,7 +2,6 @@
 #define OBJECT_COLLECTION_H
 #include <string>
 #include "object.h"
-#include "money_stack.h"
 using namespace std;
 
 struct lista
@@ -35,6 +34,7 @@ public:
 
 
     int from_file(const string &name);
+    int from_file_ms(const string &name);
     int to_file(const string &name);
 
     bool operator == (const object_collection&); // Оператор сравнения

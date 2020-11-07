@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 
+
 using namespace std;
 
 class object
@@ -21,7 +22,8 @@ public:
     void set_volume(int value);
     void set_price(int value);
 
-    virtual string get_data(const string& type) const;
+   // int get_new_volume() const;
+
 
 private:
     string name;

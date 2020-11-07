@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 
+
 using namespace std;
 
 object::object()
@@ -48,6 +49,7 @@ const int object::get_price() const
     return this->price;
 }
 
+
 void object::set_name(string value)
 {
     this->name = std::move(value);
@@ -70,10 +72,10 @@ void object::set_price(int value)
 }
 
 
-string object::get_data(const string &type) const
-{
-    if(type == "name")
-        return this->get_name();
+//string object::get_data(const string &type) const
+//{
+ //   if(type == "name")
+ //       return this->get_name();
 
-    return " ";
-}
+ //   return " ";
+//}

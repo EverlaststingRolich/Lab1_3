@@ -7,7 +7,7 @@
 #include <QStandardItem>
 #include <QStandardItemModel>
 #include "money_stack.h"
-#include "money_stack.cpp"
+//#include "money_stack.cpp"
 #include "mainwindow.h"
 #include <fstream>
 
@@ -29,8 +29,10 @@ void ms_window::on_add_ms_clicked()
     std:: string name = ui->ms_name->text().toStdString();
     int price  = atoi(ui->ms_price->text().toStdString().c_str());
     int pos = atoi(ui->ms_pos->text().toStdString().c_str());
-    int volume = find_new_volume(price);;
+    //int volume = find_new_volume(price);
+    int volume = 1;
     auto stack = new money_stack(name, volume, price);
+    cout << stack->get_new_volume() << endl;
 
     int size_of_collection = this->ms_collection.get_size();
 
@@ -51,7 +53,7 @@ void ms_window::on_view_ms_collection_clicked()
     {
         second_window window;
         window.setModal(true);
-        window.insert_data_ms(this->ms_collection, this->ms_collection.get_size());
+        window.insert_data_ms(&this->ms_collection, this->ms_collection.get_size());
         window.exec();
     }
     else
@@ -102,12 +104,7 @@ void ms_window::on_size_clicked()
         QMessageBox::critical(this,"Size", "There is no elements at list");
 }
 
-void ms_window::on_confirm_input_clicked()
-{
-    this->ms_collection.from_file(ui->input->text().toStdString());
 
-    QMessageBox::information(this, "Input from file", "Success input from file");
-}
 
 
 
@@ -122,3 +119,12 @@ void ms_window::on_confirm_output_clicked()
         QMessageBox::critical(this,"Output to file", "There is no list");
 }
 
+
+
+
+void ms_window::on_confirm_input_clicked()
+{
+    this->ms_collection.from_file_ms(ui->input->text().toStdString());
+
+    QMessageBox::information(this, "Input from file", "Success input from file");
+}

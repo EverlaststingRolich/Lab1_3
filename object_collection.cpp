@@ -1,4 +1,5 @@
 #include "object_collection.h"
+#include "money_stack.h"
 #include <iostream>
 #include <fstream>
 #include <string.h>
@@ -296,6 +297,37 @@ int object_collection::from_file(const string &fname)
     }
     return 0;
 }
+
+int object_collection::from_file_ms(const string &fname)
+{
+    string name;
+    int volume;
+    int price;
+    ifstream file(fname);
+
+    if(this->size>0)
+    {
+        this->clean();
+        this->iterator.first = 0;
+    }
+
+    if (file.is_open())
+    {
+        while(file >> name >> volume >> price)
+        {
+            auto stack = new money_stack(name, volume, price);
+            if ((stack->get_volume()!= 0) && (stack->get_volume()>0) && (stack->get_price()>=0))
+            {
+                int nw = stack->get_new_volume();
+                cout << nw << endl;
+                this->add_tail(*stack);
+            }
+        }
+        file.close();
+    }
+    return 0;
+}
+
 
 int object_collection::to_file(const string &fname)
 {

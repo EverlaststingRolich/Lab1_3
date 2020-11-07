@@ -41,7 +41,7 @@ money_stack::money_stack(const money_stack &other):object(other)
 }
 
 
-const int &money_stack::get_new_volume() const
+int money_stack::get_new_volume() const
 {
     return this->new_volume;
 }
@@ -57,18 +57,19 @@ void money_stack::set_new_volume(const int &value)
 
 
 
-string money_stack::data(const string &type)
+string money_stack::get_data(const string &type) const
 {
-    string pr, vo, na;
+    string pr, vo, na, nv;
     if(type == "price")
     {
         pr = this->get_price();
         return pr;
     }
 
-    if(type == "volume")
+    if(type == "new_volume")
     {
         vo = this->get_new_volume();
+        cout <<"test " << vo << endl;
         return vo;
     }
 

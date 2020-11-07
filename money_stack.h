@@ -9,9 +9,9 @@ class money_stack : public object
         money_stack();
         money_stack(const string &name, const int &volume, const int &price);
         money_stack(const money_stack &other);
-        const int& get_new_volume() const;
+        int get_new_volume() const;
         void set_new_volume(const int& value);
-        string data(const string& type);
+        string get_data(const string &type) const;
 
     private:
         int new_volume;
