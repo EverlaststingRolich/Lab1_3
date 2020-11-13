@@ -14,15 +14,18 @@ public:
     object(const object& other);
     object();
 
+   int nv() const;
    const string& get_name() const;
-   const int get_volume() const;
-   const int get_price() const;
+   int get_volume() const;
+   int get_price() const;
+
+   virtual int get_data(const string& type) const;
 
     void set_name(string value);
     void set_volume(int value);
     void set_price(int value);
 
-    virtual int get_new_volume() const;
+
 
 
 private:

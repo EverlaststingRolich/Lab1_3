@@ -57,23 +57,24 @@ void money_stack::set_new_volume(const int &value)
 
 
 
-string money_stack::get_data(const string &type) const
+int money_stack::get_data(const string &type) const
 {
-    string pr, vo, na, nv;
-    if(type == "price")
+    if(type == "volume")
     {
-        pr = this->get_price();
-        return pr;
-    }
+      return get_volume();
+      if(type == "price")
+      {
+          return get_price();
+          if(type == "new")
+         {
+              cout << get_new_volume() << endl;
+              return get_new_volume();
+         }
+      }
 
-    if(type == "new_volume")
+    }
+     else
     {
-        vo = this->get_new_volume();
-        cout <<"test " << vo << endl;
-        return vo;
+        return 333;
     }
-
-    if(type == "name")
-        return this->get_name();
-    return " ";
 }

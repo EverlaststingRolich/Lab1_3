@@ -316,7 +316,6 @@ int object_collection::from_file_ms(const string &fname)
     {
         while(file >> name >> volume >> price)
         {
-            int volume = find_new_volume(price);
             auto stack = new money_stack(name, volume, price);
             if ((stack->get_volume()!= 0) && (stack->get_volume()>0) && (stack->get_price()>=0))
             {

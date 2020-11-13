@@ -29,13 +29,13 @@ void ms_window::on_add_ms_clicked()
     std:: string name = ui->ms_name->text().toStdString();
     int price  = atoi(ui->ms_price->text().toStdString().c_str());
     int pos = atoi(ui->ms_pos->text().toStdString().c_str());
-    int volume = find_new_volume(price);
-    //int volume = ;
+    int volume = 1;
     auto stack = new money_stack(name, volume, price);
+    //cout << "test: " << stack->get_new_volume() << endl;
 
     int size_of_collection = this->ms_collection.get_size();
 
-    if(pos == 0 || volume == 0 || price == 0 || pos > size_of_collection+1)
+    if(pos <= 0 || volume <= 0 || price <= 0 || pos > size_of_collection+1 )
 
         QMessageBox::critical(this, "Add", "Wrong data. Please, try again");
     else

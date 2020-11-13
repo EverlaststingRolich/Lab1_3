@@ -10,14 +10,14 @@ class money_stack : public object
         money_stack(const string &name, const int &volume, const int &price);
         money_stack(const money_stack &other);
 
-        int get_new_volume() const override;
+        int get_new_volume() const;
         void set_new_volume(const int& value);
-        string get_data(const string &type) const;
+        int get_data(const string &type) const override;
 
     private:
         int new_volume;
 
 };
-int find_new_volume(const int& price);
+
 
 #endif // MONEY_STACK_H

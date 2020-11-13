@@ -59,7 +59,7 @@ void second_window::insert_data_ms(object_collection* ms_collection, int size) c
         item = new QStandardItem(QString(QString::number(ms_collection->get_iterator_value().get_price())));
         model->appendRow(item);
 
-        item = new QStandardItem(QString(QString::number(ms_collection->get_iterator_value().get_volume())));
+        item = new QStandardItem(QString(QString::number(ms_collection->get_iterator_value().get_data("new"))));
         model->appendRow(item);
 
     }

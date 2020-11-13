@@ -32,7 +32,7 @@ void object_window::on_add_clicked()
 
     int size_of_collection = this->obj_collection.get_size();
 
-    if(pos == 0 || volume == 0 || price == 0 || pos > size_of_collection+1)
+    if(pos <= 0 || volume <= 0 || price <= 0 || pos > size_of_collection+1)
 
         QMessageBox::critical(this, "Add", "Wrong data. Please, try again");
     else
