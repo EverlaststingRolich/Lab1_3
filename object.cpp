@@ -34,22 +34,6 @@ object::object(const object& other)
     this->price = other.price;
 }
 
-int object:: nv() const
-{
-    int amount = 0;
-    int value = this->price;
-    amount = amount + value/100;
-    value = value % 100;
-    amount = amount + value/50;
-    value = value % 50;
-    amount = amount + value/10;
-    value = value % 10;
-    amount = amount + value/5;
-    value = value % 5;
-    amount = amount + value/1;
-    value = value % 1;
-    return amount;
-}
 
 const string &object::get_name() const
 {
@@ -95,9 +79,6 @@ int object::get_data(const string &type) const
 
     if(type == "price")
         return get_price();
-
-    if(type == "new")
-        return nv();
     return 111;
 }
 

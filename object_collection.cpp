@@ -13,7 +13,7 @@ object_collection::object_collection()
     this->size = 0;
 
     this->iterator.first = 0;
-    this->iterator.second = this->list_->field;
+    this->iterator.second = *this->list_->field;
 }
 
 object_collection::object_collection(const object_collection& other)
@@ -24,7 +24,7 @@ object_collection::object_collection(const object_collection& other)
     lista *temp = other.head;
     while (temp != 0)
     {
-        add_tail(temp->field);
+        add_tail(*temp->field);
         temp = temp->next;
     }
     this->iterator = other.iterator;
@@ -55,7 +55,7 @@ int object_collection::add_elem(object ob, int pos)
         }
         lista *prev_ins = ins->prev;
         lista *temp = new lista;
-        temp->field = ob;
+        temp->field = &ob;
 
         if(prev_ins != 0 && this->size != 1)
             prev_ins->next = temp;
@@ -80,7 +80,7 @@ int object_collection::add_head(object ob)
     {
         lista *temp = new lista;
         temp->prev = 0;
-        temp->field = ob;
+        temp->field = &ob;
         temp->next = head;
         if(head != 0)
             head->prev = temp;
@@ -104,7 +104,7 @@ int object_collection::add_tail(object ob)
     {
         lista *temp = new lista;
         temp->next = NULL;
-        temp->field = ob;
+        temp->field = &ob;
 
         if (this->head != NULL)
         {
@@ -170,7 +170,7 @@ int object_collection::remove(int index)
         this->iterator.first = this->size-1;
     for (int i=0; i<this->iterator.first-1; i++)
         this->list_ = this->list_->next;
-    this->iterator.second = this->list_->field;
+    this->iterator.second = *this->list_->field;
     this->size--;
     return 0;
 }
@@ -205,10 +205,10 @@ void object_collection::sort()
         ptr1 = this->head;
         while(ptr1->next != lptr)
         {
-            pr1 = ptr1->field.get_price();
-            pr2 = ptr1->next->field.get_price();
-            vol1 = ptr1->field.get_volume();
-            vol2 = ptr1->next->field.get_volume();
+            pr1 = ptr1->field->get_price();
+            pr2 = ptr1->next->field->get_price();
+            vol1 = ptr1->field->get_volume();
+            vol2 = ptr1->next->field->get_volume();
 
             if(pr1/vol1 > pr2/vol2)
             {
@@ -239,7 +239,7 @@ void object_collection::set_iterator_index(int index)
             temp = temp->next;
             i++;
         }
-        this->iterator.second = temp->field;
+        this->iterator.second = *temp->field;
     }
 }
 
@@ -254,7 +254,7 @@ void object_collection::set_iterator_value(object ob)
             temp = temp->next;
             i++;
         }
-        temp->field = ob;
+        temp->field = &ob;
         this->iterator.second = ob;
     }
 }
@@ -357,7 +357,7 @@ bool object_collection::operator==(const object_collection& l)
     while(t1 != 0)
     {
         //Сверяем данные, которые находятся на одинаковых позициях
-        if (t1->field.get_name() != t2->field.get_name() && t1->field.get_volume() != t2->field.get_volume() && t1->field.get_price() != t2->field.get_price())
+        if (t1->field->get_name() != t2->field->get_name() && t1->field->get_volume() != t2->field->get_volume() && t1->field->get_price() != t2->field->get_price())
             return false;
         t1 = t1->next;
         t2 = t2->next;

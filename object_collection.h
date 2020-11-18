@@ -6,7 +6,7 @@ using namespace std;
 
 struct lista
 {
-    object field; //поле данных
+    object *field; //поле данных *field
     struct lista *next; // указатель на следующий элемент
     struct lista *prev; // указатель на предыдущий элемент
 };

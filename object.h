@@ -14,7 +14,6 @@ public:
     object(const object& other);
     object();
 
-   int nv() const;
    const string& get_name() const;
    int get_volume() const;
    int get_price() const;

@@ -67,8 +67,7 @@ int money_stack::get_data(const string &type) const
           return get_price();
           if(type == "new")
          {
-              cout << get_new_volume() << endl;
-              return get_new_volume();
+              return this->new_volume;
          }
       }
 
