@@ -17,7 +17,7 @@ second_window::~second_window()
     delete ui;
 }
 
-void second_window::insert_data(object_collection obj_collection, int size) const
+void second_window::insert_data(object_collection* collection, int size) const
 {
     QStandardItemModel *model = new QStandardItemModel;
     QStandardItem *item;
@@ -25,24 +25,24 @@ void second_window::insert_data(object_collection obj_collection, int size) cons
     {
 
         item = new QStandardItem(QString("#" + QString::number(i+1)));
-        obj_collection.set_iterator_index(i+1);
         model->appendRow(item);
 
-        item = new QStandardItem(QString(QString::fromStdString(obj_collection.get_iterator_value().get_name())));
+        item = new QStandardItem(QString(QString::fromStdString(collection->get_iterator()[i]->get_name())));
         model->appendRow(item);
 
-        item = new QStandardItem(QString(QString::number(obj_collection.get_iterator_value().get_price())));
+        item = new QStandardItem(QString(QString::number(collection->get_iterator()[i]->get_price())));
         model->appendRow(item);
 
-        item = new QStandardItem(QString(QString::number(obj_collection.get_iterator_value().get_volume())));
+        item = new QStandardItem(QString(QString::number(collection->get_iterator()[i]->get_volume())));
         model->appendRow(item);
+
 
     }
     ui->listView->setModel(model);
 }
 
 
-void second_window::insert_data_ms(object_collection* ms_collection, int size) const
+void second_window::insert_data_ms(object_collection* collection, int size) const
 {
     QStandardItemModel *model = new QStandardItemModel;
     QStandardItem *item;
@@ -50,16 +50,15 @@ void second_window::insert_data_ms(object_collection* ms_collection, int size) c
     {
 
         item = new QStandardItem(QString("#" + QString::number(i+1)));
-        ms_collection->set_iterator_index(i+1);
         model->appendRow(item);
 
-        item = new QStandardItem(QString(QString::fromStdString(ms_collection->get_iterator_value().get_name())));
+        item = new QStandardItem(QString(QString::fromStdString(collection->get_iterator()[i]->get_name())));
         model->appendRow(item);
 
-        item = new QStandardItem(QString(QString::number(ms_collection->get_iterator_value().get_price())));
+        item = new QStandardItem(QString(QString::number(collection->get_iterator()[i]->get_data("price"))));
         model->appendRow(item);
 
-        item = new QStandardItem(QString(QString::number(ms_collection->get_iterator_value().get_data("new"))));
+        item = new QStandardItem(QString(QString::number(collection->get_iterator()[i]->get_data("new"))));
         model->appendRow(item);
 
     }

@@ -34,6 +34,7 @@ private slots:
 
 private:
     object_collection obj_collection;
+    object_collection *obj_collection_dial;
     Ui::object_window *ui;
 };
 

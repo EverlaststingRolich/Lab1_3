@@ -1,2 +1,2 @@
 calculator 5 231
-
+diamond 1 12

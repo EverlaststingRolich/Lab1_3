@@ -62,18 +62,15 @@ int money_stack::get_data(const string &type) const
     if(type == "volume")
     {
       return get_volume();
-      if(type == "price")
-      {
-          return get_price();
-          if(type == "new")
-         {
-              return this->new_volume;
-         }
-      }
+    }
 
-    }
-     else
+    if(type == "price")
     {
-        return 333;
+        return get_price();
     }
+    if(type == "new")
+    {
+        return this->new_volume;
+    }
+
 }

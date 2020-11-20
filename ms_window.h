@@ -34,6 +34,7 @@ private slots:
 
 private:
     object_collection ms_collection;
+    object_collection *ms_collection_dial;
     Ui::ms_window *ui;
 };
 

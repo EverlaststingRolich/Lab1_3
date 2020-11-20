@@ -101,40 +101,14 @@
   <widget class="QPushButton" name="add">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>240</y>
+     <x>70</x>
+     <y>200</y>
      <width>141</width>
      <height>31</height>
     </rect>
    </property>
    <property name="text">
     <string>Add</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="object_position">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>190</y>
-     <width>151</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>190</y>
-     <width>51</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Position:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
@@ -161,19 +135,6 @@
    </property>
    <property name="text">
     <string>View collection</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="object_number">
-   <property name="geometry">
-    <rect>
-     <x>130</x>
-     <y>430</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="delete_number">

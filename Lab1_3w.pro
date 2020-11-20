@@ -25,8 +25,7 @@ SOURCES += \
     object_collection.cpp \
     object_window.cpp \
     second_window.cpp \
-    test.cpp \
-    test_collection.cpp
+    test.cpp
 
 HEADERS += \
     mainwindow.h \
