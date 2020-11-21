@@ -120,9 +120,6 @@ int object_collection::input_from_file(const string &fname)
             file >> name;
             file >> volume;
             file >> price;
-            cout << name << endl;
-            cout << volume << endl;
-            cout << price << endl;
             auto ob = new object(name, volume, price);
             if ((ob->get_volume()!= 0) && (ob->get_volume()>0) && (ob->get_price()>=0))
                 this->add_elem(*ob);
@@ -152,10 +149,6 @@ int object_collection::ms_input_from_file(const string &fname)
             file >> name;
             file >> volume;
             file >> price;
-            cout << name << endl;
-            cout << volume << endl;
-            cout << price << endl;
-
             auto stack = new money_stack(name, volume, price);
             if ((stack->get_volume()!= 0) && (stack->get_volume()>0) && (stack->get_price()>=0))
                 this->add_elem(*stack);

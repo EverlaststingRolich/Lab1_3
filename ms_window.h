@@ -32,6 +32,8 @@ private slots:
 
     void on_confirm_output_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     object_collection ms_collection;
     object_collection *ms_collection_dial;

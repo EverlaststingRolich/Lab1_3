@@ -30,7 +30,7 @@ void ms_window::on_view_ms_collection_clicked()
         {
             second_window window;
             window.setModal(true);
-            window.insert_data_ms(&this->ms_collection, this->ms_collection.get_size());
+            window.insert_data(&this->ms_collection, this->ms_collection.get_size());
             window.exec();
         }
         else
@@ -112,4 +112,21 @@ void ms_window::on_confirm_input_clicked()
     this->ms_collection.ms_input_from_file(ui->input->text().toStdString());
 
     QMessageBox::information(this, "Input from file", "Success input from file");
+}
+
+void ms_window::on_pushButton_clicked()
+{
+    std:: string name = ui->object_name->text().toStdString();
+    int volume  = atoi(ui->object_volume->text().toStdString().c_str());
+    int price  = atoi(ui->object_price->text().toStdString().c_str());
+    auto obj = new object(name, volume, price);
+
+    if(volume <= 0 || price <= 0)
+
+        QMessageBox::critical(this, "Add", "Wrong data. Please, try again");
+    else
+    {
+        this->ms_collection.add_elem(*obj);
+        QMessageBox::information(this, "Add", "You add new purchase");
+    }
 }

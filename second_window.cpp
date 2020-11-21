@@ -27,15 +27,29 @@ void second_window::insert_data(object_collection* collection, int size) const
         item = new QStandardItem(QString("#" + QString::number(i+1)));
         model->appendRow(item);
 
-        item = new QStandardItem(QString(QString::fromStdString(collection->get_iterator()[i]->get_name())));
-        model->appendRow(item);
+        if (collection->get_iterator()[i]->get_data("new")>0 && collection->get_iterator()[i]->get_data("new") < 100)
+        {
 
-        item = new QStandardItem(QString(QString::number(collection->get_iterator()[i]->get_price())));
-        model->appendRow(item);
+            item = new QStandardItem(QString(QString::fromStdString(collection->get_iterator()[i]->get_name())));
+            model->appendRow(item);
 
-        item = new QStandardItem(QString(QString::number(collection->get_iterator()[i]->get_volume())));
-        model->appendRow(item);
+            item = new QStandardItem(QString(QString::number(collection->get_iterator()[i]->get_data("price"))));
+            model->appendRow(item);
 
+            item = new QStandardItem(QString(QString::number(collection->get_iterator()[i]->get_data("new"))));
+            model->appendRow(item);
+        }
+        else
+        {
+            item = new QStandardItem(QString(QString::fromStdString(collection->get_iterator()[i]->get_name())));
+            model->appendRow(item);
+
+            item = new QStandardItem(QString(QString::number(collection->get_iterator()[i]->get_price())));
+            model->appendRow(item);
+
+            item = new QStandardItem(QString(QString::number(collection->get_iterator()[i]->get_volume())));
+            model->appendRow(item);
+        }
 
     }
     ui->listView->setModel(model);
